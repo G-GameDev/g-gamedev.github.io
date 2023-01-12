@@ -6,7 +6,6 @@ categories:
   - C++
   - Unreal Engine
   - Blueprints
-
 tags:
   - Jekyll
   - update
