@@ -56,8 +56,8 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
-  avatar : "/assets/images/ggamedev-avatar.png"
+  name   : "Ysgrathe"
+  avatar : "/assets/images/captain-squirrel.png"
   bio    : "Everything Game Dev related."
   links:
     - label: "Website"
@@ -66,8 +66,11 @@ author:
 #    - label: "Twitter"
 #      icon: "fab fa-fw fa-twitter-square"
 #      url: "https://twitter.com/"
-    - label: "GitHub"
+    - label: "Discord"
       icon: "fab fa-fw fa-github"
+      url: "https://discord.gg/jjy2aJ3hj9"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-discord"
       url: "https://github.com/Ysgrathe"
 #    - label: "Instagram"
 #      icon: "fab fa-fw fa-instagram"
