@@ -1,6 +1,6 @@
 ---
 title: "First blog post!"
-date: 2023-01-12T15:51:00-01:00
+date: 2023-01-12T15:51:00+01:00
 categories:
   - blog
   - C++
