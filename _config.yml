@@ -19,6 +19,7 @@ timezone: Europe/Prague
 
 include:
   - _pages
+  - articles
 
 # Plugins (previously gems:)
 plugins:
