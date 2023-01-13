@@ -9,11 +9,12 @@ classes: wide
 
 This is Unreal!
 
-{% for unreal in site.unreal %}
+{% for unreal_article in site.unreal %}
 <h2>
-<a href="{{ unreal.url }}">
-{{ unreal.title }}
+<a href="{{ unreal_article.url }}">
+{{ unreal_article.title }}
+{{ unreal_article.excerpt }}
 </a>
 </h2>
-  <p>{{ unreal.content | markdownify }}</p>
+  <p>{{ unreal_article.content | markdownify }}</p>
 {% endfor %}
