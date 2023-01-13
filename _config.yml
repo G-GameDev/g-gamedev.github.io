@@ -84,7 +84,7 @@ tag_archive:
 collections_dir: articles
 
 collections:
-  unreal-articles:
+  unreal:
     output: true
-  gamedev-articles:
+  gamedev:
     output: true
