@@ -86,5 +86,7 @@ collections_dir: articles
 collections:
   unreal:
     output: true
+    permalink: /unreal/:path/
   gamedev:
     output: true
+    permalink: /gamedev/:path/
