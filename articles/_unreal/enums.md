@@ -4,7 +4,7 @@ title: "Enums & Bitflags"
 date: 2023-01-12T15:51:00+01:00
 last_modified_at:  2023-01-12T15:51:00+01:00
 
-permalink: /unreal/enums
+#permalink: /unreal/enums
 
 categories:
 - unreal
@@ -16,13 +16,13 @@ tags:
 
 # Enums & Bitflags
 This is the supporting document for my YouTube video:
+
 {% include video id="TuHFeS_eBe8" provider="youtube" %}
 
-This is the start of the GGameDev blog.
-I want to use this site to tie together the game-dev work I do, with the YouTube channel,
-and provide some 'text based' reference to accompany those videos,
-and documentation for things like the plugins I create. Along with other more general
-blog posts detailing things I encounter during my game-dev journey.
+How to use enums and bitflags in Unreal game development.
+We’ll take a look at exactly what these things are, how they operate, 
+what they are useful for, and when to use them (or use something else.)
+As usual there will be examples with both blueprints and C++ where appropriate.
 {: .notice--danger}
 
 
