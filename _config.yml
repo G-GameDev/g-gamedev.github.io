@@ -61,10 +61,10 @@ footer:
 collections:
   unreal:
     output: true
-    #permalink: /:collection/:name/
+    permalink: /:collection/:name/
   gamedev:
     output: true
-    #permalink: /:collection/:name/
+    permalink: /:collection/:name/
 
 
 defaults:
