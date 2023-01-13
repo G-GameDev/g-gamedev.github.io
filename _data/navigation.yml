@@ -7,5 +7,7 @@ main:
     url: /posts/
   - title: "Tags"
     url: /tags/
+  - title: "YouTube"
+    url: https://www.youtube.com/@ggamedev
   - title: "About"
     url: /about/
