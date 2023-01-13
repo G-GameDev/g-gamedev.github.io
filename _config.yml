@@ -102,8 +102,8 @@ defaults:
       author_profile: false
       share: true
       comments: true
-      sidebar:
-        nav: "unreal"
+#      sidebar:
+#        nav: "unreal"
   # _gamedev
   - scope:
       path: ""
