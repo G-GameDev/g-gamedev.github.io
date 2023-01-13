@@ -19,7 +19,8 @@ timezone: Europe/Prague
 
 include:
   - _pages
-  - articles
+  - unreal
+  - gamedev
 
 # Plugins (previously gems:)
 plugins:
