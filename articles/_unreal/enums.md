@@ -6,7 +6,7 @@ last_modified_at:  2023-01-12T15:51:00+01:00
 
 ---
 
-# Enums & Bitflags
+# Enums And Bitflags
 This is the supporting document for my YouTube video:
 
 {% include video id="TuHFeS_eBe8" provider="youtube" %}
