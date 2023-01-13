@@ -6,5 +6,4 @@ collection: gamedev
 entries_layout: grid
 classes: wide
 ---
-
 This is GameDev!
