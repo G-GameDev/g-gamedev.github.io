@@ -64,10 +64,10 @@ footer:
 collections:
   unreal:
     output: true
-    permalink: /unreal/:path/
+    permalink: /:collection/:name
   gamedev:
     output: true
-    permalink: /gamedev/:path/
+    permalink: /:collection/:name
 
 
 defaults:
