@@ -1,6 +1,6 @@
 ﻿---
 title: "This is Basic"
-excerpt: "How to use enums and bitflags in Unreal game development."
+synopsis: "How to use enums and bitflags in Unreal game development."
 ---
 
 # Basic
