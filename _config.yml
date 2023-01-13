@@ -3,6 +3,7 @@ title: GGameDev
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   Game dev blog and articles. 
+baseurl: ""
 twitter_username: #username
 github_username: Ysgrathe
 minimal_mistakes_skin: dark
