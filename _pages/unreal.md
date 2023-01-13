@@ -16,5 +16,4 @@ This is Unreal!
 {{ unreal_article.excerpt }}
 </a>
 </h2>
-  <p>{{ unreal_article.content | markdownify }}</p>
 {% endfor %}
