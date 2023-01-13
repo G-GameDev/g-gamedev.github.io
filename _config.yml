@@ -60,10 +60,10 @@ collections_dir: articles
 collections:
   unreal:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:name/
   gamedev:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:name/
 
 
 defaults:
