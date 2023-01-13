@@ -13,7 +13,7 @@ markdown: kramdown
 #markdown_ext: "markdown, mkdown, mkdn, mkd, md"
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
-permalink: /:categories/:title/
+#permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: Europe/Prague
@@ -62,10 +62,10 @@ footer:
 collections:
   unreal:
     output: true
-    permalink: /unreal/:name/
+    permalink: /unreal/:path/
   gamedev:
     output: true
-    permalink: /gamedev/:name/
+    permalink: /gamedev/:path/
 
 
 defaults:
