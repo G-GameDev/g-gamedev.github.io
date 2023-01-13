@@ -3,15 +3,12 @@ title: Unreal
 permalink: /unreal/
 collection: unreal
 entries_layout: grid
-classes: wide
 ---
 
 This is Unreal!
 
-{% for article in site.unreal %}
+{% for collection in site.collections %}
 <h2>
-<a href="{{ article.url }}">
-Hello{{ article.title }}ByeBye
-</a>
+Hello{{ collection.label }} - {{ collection.output }}ByeBye
 </h2>
 {% endfor %}
