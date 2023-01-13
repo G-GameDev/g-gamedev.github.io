@@ -1,8 +1,7 @@
 ﻿---
 title: "Enums & Bitflags"
-
-tags:
-- Unreal Engine
+date: 2023-01-12T15:51:00+01:00
+last_modified_at:  2023-01-12T15:51:00+01:00
 
 ---
 
