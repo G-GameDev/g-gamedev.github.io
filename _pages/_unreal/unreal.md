@@ -1,14 +1,17 @@
 ---
-title: "Gamedev!"
+title: "Unreal Engine!"
 
 date: 2023-01-12T15:51:00+01:00
 last_modified_at:  2023-01-12T15:51:00+01:00
 
+permalink: /unreal/
+
 categories:
-  - gamedev
+  - unreal
 
 tags:
   - Unreal Engine
+
 ---
 
 This is the start of the GGameDev blog.
@@ -17,6 +20,7 @@ and provide some 'text based' reference to accompany those videos,
 and documentation for things like the plugins I create. Along with other more general
 blog posts detailing things I encounter during my game-dev journey.
 {: .notice--danger}
+
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
