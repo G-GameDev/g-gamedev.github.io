@@ -98,12 +98,12 @@ defaults:
     values:
       layout: single
       class: wide
-#      read_time: false
-#      author_profile: false
-#      share: true
-#      comments: true
-#      sidebar:
-#        nav: "unreal"
+      read_time: false
+      author_profile: false
+      share: true
+      comments: true
+      sidebar:
+        nav: "unreal"
   # _gamedev
   - scope:
       path: ""
