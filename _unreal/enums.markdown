@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Enums And Bitflags"
 synopsis: "How to use enums and bitflags in Unreal game development."
 ---
