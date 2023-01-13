@@ -1,6 +1,7 @@
 ---
 title: Unreal
 permalink: /unreal/
+layout: collection
 collection: unreal
 entries_layout: grid
 ---
