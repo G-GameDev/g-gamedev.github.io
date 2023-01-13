@@ -9,6 +9,12 @@ This is Unreal!
 
 {% for collection in site.collections %}
 <h2>
-Hello{{ collection.label }} - {{ collection.output }}ByeBye
+{{ collection.label }} - {{ collection.output }} - {{ collection.directory }}
 </h2>
+{% for doc in collection.docs %}
+<h3>
+{{ doc.url }} 
+</h3>
+{% endfor %}
+
 {% endfor %}
