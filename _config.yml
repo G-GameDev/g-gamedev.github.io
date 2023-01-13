@@ -55,14 +55,14 @@ footer:
 
 # Collections
 collections_dir: articles
-#
-#collections:
-#  unreal:
-#    output: true
-#    permalink: /:collection/:path/
-#  gamedev:
-#    output: true
-#    permalink: /:collection/:path/
+
+collections:
+  unreal:
+    output: true
+    permalink: /:collection/:path/
+  gamedev:
+    output: true
+    permalink: /:collection/:path/
 
 
 defaults:
