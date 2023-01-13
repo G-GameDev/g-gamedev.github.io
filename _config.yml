@@ -62,10 +62,10 @@ footer:
 collections:
   unreal:
     output: true
-    permalink: /:collection/:name/
+    permalink: /unreal/:name/
   gamedev:
     output: true
-    permalink: /:collection/:name/
+    permalink: /gamedev/:name/
 
 
 defaults:
