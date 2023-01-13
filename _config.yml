@@ -81,6 +81,7 @@ defaults:
       comments: true
       share: true
       related: true
+      permalink: /:categories/:title/
   # _pages
   - scope:
       path: "_pages"
