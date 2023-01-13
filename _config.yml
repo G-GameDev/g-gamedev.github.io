@@ -53,6 +53,18 @@ footer:
 #      icon: "fab fa-fw fa-instagram"
 #      url: "https://instagram.com/"
 
+# Collections
+collections_dir: articles
+
+collections:
+  unreal:
+    output: true
+    permalink: /:collection/:path/
+  gamedev:
+    output: true
+    permalink: /:collection/:path/
+
+
 defaults:
   # _posts
   - scope:
@@ -73,7 +85,33 @@ defaults:
     values:
       layout: single
       author_profile: true
-
+  # _unreal
+  - scope:
+      path: ""
+      type: unreal
+    values:
+      layout: single
+      class: wide
+      read_time: false
+      author_profile: false
+      share: false
+      comments: false
+      sidebar:
+        nav: "unreal"
+  # _gamedev
+  - scope:
+      path: ""
+      type: gamedev
+    values:
+      layout: single
+      class: wide
+      read_time: false
+      author_profile: false
+      share: false
+      comments: false
+      sidebar:
+        nav: "gamedev"     
+        
 category_archive:
   type: liquid
   path: /categories/
@@ -81,12 +119,3 @@ tag_archive:
   type: liquid
   path: /tags/
 
-collections_dir: articles
-
-collections:
-  unreal:
-    output: true
-    permalink: /:collection/:path/
-  gamedev:
-    output: true
-    permalink: /:collection/:path/
