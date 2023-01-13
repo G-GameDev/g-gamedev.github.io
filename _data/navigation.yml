@@ -1,8 +1,8 @@
 main:
-  - title: "General Game-dev"
-    url: /gamedev/
-  - title: "Unreal Engine"
-    url: /unreal/
+  #- title: "General Game-dev"
+ #   url: /gamedev/
+ # - title: "Unreal Engine"
+ #   url: /unreal/
   - title: "Blog"
     url: /posts/
   - title: "Tags"
