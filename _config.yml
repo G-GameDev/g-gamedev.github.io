@@ -55,7 +55,7 @@ footer:
 #      url: "https://instagram.com/"
 
 # Collections
-collections_dir: articles
+#collections_dir: articles
 
 collections:
   unreal:
