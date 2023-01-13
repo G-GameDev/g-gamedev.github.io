@@ -54,15 +54,15 @@ footer:
 #      url: "https://instagram.com/"
 
 # Collections
-collections_dir: articles
-
-collections:
-  unreal:
-    output: true
-    permalink: /:collection/:path/
-  gamedev:
-    output: true
-    permalink: /:collection/:path/
+#collections_dir: articles
+#
+#collections:
+#  unreal:
+#    output: true
+#    permalink: /:collection/:path/
+#  gamedev:
+#    output: true
+#    permalink: /:collection/:path/
 
 
 defaults:
@@ -94,8 +94,8 @@ defaults:
       class: wide
       read_time: false
       author_profile: false
-      share: false
-      comments: false
+      share: true
+      comments: true
       sidebar:
         nav: "unreal"
   # _gamedev
@@ -107,8 +107,8 @@ defaults:
       class: wide
       read_time: false
       author_profile: false
-      share: false
-      comments: false
+      share: true
+      comments: true
       sidebar:
         nav: "gamedev"     
         
