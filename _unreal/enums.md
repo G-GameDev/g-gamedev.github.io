@@ -488,7 +488,7 @@ As they say.
 
 # Bitflag Enum Examples
 
-![healthy](../assets/unreal/enums/Injury_Healthy.png){: .align-left}
+![healthy](../assets/unreal/enums/Injury_Healthy.png){: .align-right}
 We are going to make a bitflags enum for tracking injuries to specific body locations on the player character.
 
 In this example I start with an entry for ‘Healthy’ which is set to zero, meaning no injuries, and would most likely be
