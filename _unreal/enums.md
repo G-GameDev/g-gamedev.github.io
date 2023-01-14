@@ -282,7 +282,8 @@ Counting from 1 to 8 in binary (shown as an entire byte with leading zeros) is a
 7. 00000111
 8. 00001000
 
-example 00101010 =<br>
+Another example:<br>
+Binary number 00101010 =<br>
 128 * 0 + 64 * 0 + 32 * 1 + 16 * 0 + 8 * 1 + 4 * 0+ 2 * 1 =<br>
 42
 
@@ -410,7 +411,7 @@ We can then have a weapon class, with an `AmmunitionType` property.
 
 ## Currency Exchange Rate Example
 
-![structure_icon](enums-assets/ExchangeRate_Structure.png)
+![structure_icon](enums/ExchangeRate_Structure.png)
 
 ![my_img](/assets/images/tux.png "The Pixel Tracker logo")
 

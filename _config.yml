@@ -22,8 +22,11 @@ timezone: Europe/Prague
 
 include:
   - _pages
-#  - _unreal
-#  - _gamedev
+  - assets
+#  - assets/unreal
+#  - assets/gamedev
+#  - assets/unreal/enums
+
 
 # Plugins (previously gems:)
 plugins:
