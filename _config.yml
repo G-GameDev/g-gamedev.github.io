@@ -98,10 +98,10 @@ defaults:
     values:
       layout: single
       class: wide
-      read_time: false
-      author_profile: false
-      share: true
-      comments: true
+#      read_time: false
+#      author_profile: false
+#      share: true
+#      comments: true
 #      sidebar:
 #        nav: "unreal"
   # _gamedev
