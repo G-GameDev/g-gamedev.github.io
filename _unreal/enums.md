@@ -411,11 +411,10 @@ We can then have a weapon class, with an `AmmunitionType` property.
 
 ## Currency Exchange Rate Example
 
-![structure_icon](enums/ExchangeRate_Structure.png)
+![structure_icon](../assets/unreal/enums/ExchangeRate_Structure.png)
+![exchange_rate_1](../assets/unreal/enums/ExchangeRate_Creation_1.png)
+![exchange_rate_2](../assets/unreal/enums/ExchangeRate_Creation.png)
 
-![my_img](/assets/images/tux.png "The Pixel Tracker logo")
-
-![my_img](/assets/images/tux.png "The Pixel Tracker logo")
 
 
 We can then show how we might store an exchange rate table, converting between these currencies.
