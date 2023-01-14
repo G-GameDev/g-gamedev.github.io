@@ -497,9 +497,9 @@ different ways.
 ![](../assets/unreal/enums/Enum_DECIMAL.png){: .align-right}
 
 You can just stick with decimal, especially if you are only dealing with `uint8` sizes.
-{: .cf}
 
-## Values in Hexadecimal
+
+## Values in Hexadecimal{: .cf}
 ![](../assets/unreal/enums/Enum_HEX.png){: .align-right}
 
 For BitFlags enumerations, many people have traditionally used hexadecimal notation to specify the values.<br>
@@ -507,9 +507,9 @@ And a majority of the BitFlag enumerations which Epic uses in the Engine code ar
 
 Historically the reason for this is given as;
 'it's a bit clearer and less error prone than using decimal.'
-{: .cf}
 
-## Values in Binary
+
+## Values in Binary{: .cf}
 ![](../assets/unreal/enums/Enum_BINARY.png){: .align-right}
 
 However, as of C++ 14, we can now write binary literals, which would arguably be the clearest way of declaring these
@@ -518,9 +518,9 @@ enumerations, as long as we provide any leading zeros.
 I don’t wanna get into a whole argument about which is better,
 for a `uint8`, binary would probably be the clearest to read in your code. But if you have bitflags based on `uint64`… do
 you really wanna type out 64 characters for each number? In hexadecimal it's only 16.
-{: .cf}
 
-## Values as 'left shifted' 1
+
+## Values as 'left shifted' 1{: .cf}
 ![](../assets/unreal/enums/Enum_LSL.png){: .align-right}
 
 And of course, yet another school of thought prefers to use compile time constants, where your enum values are specified
@@ -535,7 +535,7 @@ as you keep seeing the various values all over the place in 3d game development,
 For this example, I’ll specify them in binary, and put the decimal value in a comment.
 {: .cf}
 
-# Bitflag Enum Examples
+# Bitflag Enum Example
 ![healthy](../assets/unreal/enums/Injury_Healthy.png){: .align-right}
 We are going to make a bitflags enum for tracking injuries to specific body locations on the player character.
 
@@ -563,19 +563,19 @@ enum class EPlayerInjuries : uint8
 {
     Healthy         = 0b00000000 // 0
 
-	LeftArmDamage   = 0b00000001 // 1
-	RightArmDamage  = 0b00000010 // 2
+    LeftArmDamage   = 0b00000001 // 1
+    RightArmDamage  = 0b00000010 // 2
 
-	LeftLegDamage   = 0b00000100 // 4
-	RightLegDamage  = 0b00001000 // 8
+    LeftLegDamage   = 0b00000100 // 4
+    RightLegDamage  = 0b00001000 // 8
 
-	CoreDamage      = 0b00010000 // 16
-	HeadDamage      = 0b00100000 // 32
+    CoreDamage      = 0b00010000 // 16
+    HeadDamage      = 0b00100000 // 32
 
-	MobilityImpaired = LeftLegDamage + RightLegDamage,		// 0b00001100 (12)
-	DexterityImpaired = LeftArmDamage + RightArmDamage,		// 0b00000011 (3)
-	SevereIncapacitation = MobilityImpaired + DexterityImpaired,	// 0b00001111 (15)
-	AlmostAWrightOff = 63						// 0b00111111 (63)
+    MobilityImpaired = LeftLegDamage + RightLegDamage,		// 0b00001100 (12)
+    DexterityImpaired = LeftArmDamage + RightArmDamage,		// 0b00000011 (3)
+    SevereIncapacitation = MobilityImpaired + DexterityImpaired,	// 0b00001111 (15)
+    AlmostAWrightOff = 63						// 0b00111111 (63)
 
 };
 ENUM_CLASS_FLAGS(EPlayerInjuries);
