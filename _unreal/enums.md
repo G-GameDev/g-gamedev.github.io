@@ -484,137 +484,160 @@ If we don’t find a row with the specified from and to currencies we return a v
 like, such as returning -1 to indicate a conversion failure to the calling code. And if you were going to use something
 like this a lot, it might make sense to check if the from and to currencies are the same before even looking at the
 datatable, and simply returning the same amount that was passed in if they are.<br>
-You know, just in case your UI doesn’t enforce that they are different.<br>
+You know, just in case you forget to ensure that your UI enforces that they are different.
 >Belt and Braces
- 
+
 As they say.
 
-# Bitflag Enum Examples
+# Different ways of numbering your enums in C++
+When you are declaring enums and manually assigning the values in C++, you are free to provide the values in a number of
+different ways.
 
+## Values in Decimal
+![](../assets/unreal/enums/Enum_DECIMAL.png){: .align-right}
+You can just stick with decimal, especially if you are only dealing with `uint8` sizes.
+
+## Values in Hexadecimal
+![](../assets/unreal/enums/Enum_HEX.png){: .align-right}
+For BitFlags enumerations, many people have traditionally used hexadecimal notation to specify the values.<br>
+And a majority of the BitFlag enumerations which Epic uses in the Engine code are declared in this way.
+
+Historically the reason for this is given as;
+> it's a bit clearer and less error prone than using decimal.
+
+## Values in Binary
+![](../assets/unreal/enums/Enum_BINARY.png){: .align-right}
+However, as of C++ 14, we can now write binary literals, which would arguably be the clearest way of declaring these
+enumerations, as long as we provide any leading zeros.
+
+I don’t wanna get into a whole argument about which is better,
+for a `uint8`, binary would probably be the clearest to read in your code. But if you have bitflags based on `uint64`… do
+you really wanna type out 64 characters for each number? In hexadecimal it's only 16.
+
+## Values as 'left shifted' 1
+![](../assets/unreal/enums/Enum_LSL.png){: .align-right}
+And of course, yet another school of thought prefers to use compile time constants, where your enum values are specified
+as 1, bitshifted left by the relevant number of bits.
+
+The compiler will recognise these, calculate the appropriate values, and plop them right in there for you.
+
+Its really up to you. I personally tend to specify the values in decimal, but that’s only because once you have worked
+with these things for a while you tend to memorise all the values of 2 to n, right up to 2^13 which is 8192, especially
+as you keep seeing the various values all over the place in 3d game development, most obviously in texture dimensions.
+
+For this example, I’ll specify them in binary, and put the decimal value in a comment.
+
+# Bitflag Enum Examples
 ![healthy](../assets/unreal/enums/Injury_Healthy.png){: .align-right}
 We are going to make a bitflags enum for tracking injuries to specific body locations on the player character.
 
 In this example I start with an entry for ‘Healthy’ which is set to zero, meaning no injuries, and would most likely be
 the default value you would initialise variables to.
-When you are declaring enums and manually assigning the values in C++, you are free to provide the values in a number of
-different ways.
-For BitFlags enumerations, many people have traditionally used hexadecimal notation to specify the values.
-And a majority of the BitFlag enumerations which Epic uses in the Engine code are declared in this way.
-Historically the reason for this is given as, its a bit clearer and less error prone than using decimal.
-However, as of C++ 14, we can now write binary literals, which would arguably be the clearest way of declaring these
-enumerations, as long as we provide any leading zeros. I don’t wanna get into a whole argument about which is better,
-for a uint8, binary would probably be the clearest to read in your code. But if you have bitflags based on uint64… do
-you really wanna type out 64 characters for each number? In hexadecimal its only 16.
-And of course, yet another school of thought prefers to use compile time constants, where your enum values are specified
-as 1 bitshifted left by the relevant number of bits. Like this:
 
-enum class EMyEnum:uint8
-{
-None = 0,
-Flag1 = 1 << 0,
-Flag2 = 1 << 1,
-Flag3 = 1 << 2,
-Flag4 = 1 << 3,
-Flag5 = 1 << 4
-};
-The compiler will recognise these, calculate the appropriate values, and plop them right in there for you.
-Its really up to you. I personally tend to specify the values in decimal, but that’s only because once you have worked
-with these things for a while you tend to memorise all the values of 2 to n, right up to 2^13 which is 8192, especially
-as you keep seeing the various values all over the place in 3d game development, most obviously in texture dimensions.
-But for this example, I’ll specify them in binary, and put the decimal value in a comment.
-So, back to our Injury Location enum… The next 6 entries indicate injuries to the player in distinct body locations, and
+The next 6 entries indicate injuries to the player in distinct body locations, and
 each is assigned one of those ‘power of 2’ values – that means in binary, each of those values is represented by a
 single binary digit, or ‘bit’ in the underlying byte used to store it.
+
 Following that, I have defined 4 more entries, which are simply combinations of the previous entries.
 This is just a way of defining particular ‘patterns’ of bits, that might be useful to you. Think of it as a shortcut,
 instead of testing for LeftLegDamage and RightLegDamage, you can just test for MobilityImpaired.
+
+You could use UMETA(Hidden) on such 'pattern shortcut' entries, if your enum is something that will be used
+from the Unreal Editor. I haven't tried using such an enum as an editor property, 
+but I have a sneaky feeling things might look a bit messy if you didnt cover your tracks.
+{: .notice--warning}
+
 As you can see, we can set those things, by referencing the previous entries, OR as the last entry shows, by giving the
 specific value.
-Consider this:
 
+~~~cpp
 enum class EPlayerInjuries : uint8
 {
-Healthy = 0, 0b00000000
+    Healthy         = 0b00000000 // 0
 
-	LeftArmDamage = 1,	0b00000001
-	RightArmDamage = 2,	0b00000010
+	LeftArmDamage   = 0b00000001 // 1
+	RightArmDamage  = 0b00000010 // 2
 
-	LeftLegDamage = 4,	0b00000100
-	RightLegDamage = 8,	0b00001000
+	LeftLegDamage   = 0b00000100 // 4
+	RightLegDamage  = 0b00001000 // 8
 
-	CoreDamage = 16,	0b00010000
-	HeadDamage = 32,	0b00100000
+	CoreDamage      = 0b00010000 // 16
+	HeadDamage      = 0b00100000 // 32
 
-	MobilityImpaired = LeftLegDamage + RightLegDamage,		0b00001100
-	DexterityImpaired = LeftArmDamage + RightArmDamage,		0b00000011
-	SevereIncapacitation = MobilityImpaired + DexterityImpaired,	0b00001111
-	AlmostAWrightOff = 63						0b00111111
+	MobilityImpaired = LeftLegDamage + RightLegDamage,		// 0b00001100 (12)
+	DexterityImpaired = LeftArmDamage + RightArmDamage,		// 0b00000011 (3)
+	SevereIncapacitation = MobilityImpaired + DexterityImpaired,	// 0b00001111 (15)
+	AlmostAWrightOff = 63						// 0b00111111 (63)
 
 };
 ENUM_CLASS_FLAGS(EPlayerInjuries);
-Setting Patterns
+~~~
+## Setting Patterns
 Once we have a variable typed to our bitflags enum, we can do various things with it.
+
 We can inflict individual wound locations on the Player, additionally to anything they currently have, and if they
 already have that specific wound, nothing changes, it’s still injured:
+
+~~~cpp
 PlayerWounds |= EPlayerInjuries::HeadDamage;
+~~~
+
 And we can also heal specific wounded locations in a similar way:
+~~~cpp
 PlayerWounds &= ~EPlayerInjuries::HeadDamage;
+~~~
+
 Or completely heal the Player with:
-PlayerWounds &= ~EPlayerInjuries::AlmostAWrightOff;
-Similarly, we can test what injuries the Player has and use that information in different ways. For example, we might
-decide that the player’s movement speed is affected by certain injuries:
+~~~cpp
+PlayerWounds = EPlayerInjuries::Healthy;
+~~~
+Similarly, we can test what injuries the Player has and use that information in different ways.<br>
+For example, we might decide that the player’s movement speed is affected by certain injuries:
+~~~cpp
 constexpr float NORMAL_SPEED = 100.0;
 constexpr float REDUCED_SPEED = 50.0;
-PlayerSpeed = EPlayerInjuries::PlayerWounds & EPlayerInjuries::MobilityImpaired == EplayerInjuries::MobilityImpaired?
-REDUCED_SPEED : NORMAL_SPEED;
+
+PlayerSpeed = 
+    EPlayerInjuries::PlayerWounds & EPlayerInjuries::MobilityImpaired == EplayerInjuries::MobilityImpaired 
+    ? REDUCED_SPEED : NORMAL_SPEED;
+~~~
+
 Here, we perform the test by doing a bitwise AND (&) of the PlayerWounds variable with the enumeration flags we are
 interested in testing for. Any bit which is both 1 in the variable, AND the test flags will return a 1.
 Therefore if the result of that is the same as the bitflags we tested it against, then it contains those set bits.
-Lets see those things visually, so we can really understand what is going on:
-(animation of previous 4 examples, showing graphically the binary bitpatterns used.)
-So, common operations you might want to do:
-• Modify a variable to set the bits corresponding to a specific bit pattern.
+
+## Common bitflags operations
+* Modify a variable to set the bits corresponding to a specific bit pattern.
 Use bitwise OR (|) on as many bit patterns you like, and then assign the result to your variable.
 In the example above we use C’s bitwise OR and ASSIGNMENT operator, which performs an OR on the variable and the other
 value, and then stores the result back in the variable.
-• Modify a variable to unset the bits corresponding to a specific bit pattern.
+* Modify a variable to unset the bits corresponding to a specific bit pattern.
 This is the inverse of the previous operation. Before we set the bits in our variable to those in a provided bitpattern,
 but this time we are unsetting them. Use the bitwise AND (&) with the inverted value of the bitflags you want to unset,
 by applying a NOT (~) operator to those first.
-• Test if a specific bit, or pattern of bits are set
+* Test if a specific bit, or pattern of bits are set
 If the value of the variable AND the test bits, IS EQUAL to the test bits, it means those testbits are set in the
 variable.
-• Test if ANY of the bits in a bit pattern are set
+* Test if ANY of the bits in a bit pattern are set
 Sometimes you only want to know if any bits in a given pattern are used, and maybe you dont care which specifically.
 This is basically the same as the previous test, AND the two values together. But this time, we dont compare it back to
 the test bits, we simply test if it is GREATER THAN 0. Any value > 0 indicates at least one of the test bits is set.
 
-Summary
-In this video we looked at using enums in unreal engine.
+# Summary
 Standard enums, which group a bunch of possible choices together in one convenient entity, allow us to very easily
-provide dropdown list selections to our unreal editor users, such as level designers. We can test in code which specific
-choice is used, and as each entry in an enum is just a number, we can create them in an order which makes sense, and
-then use < > operators for certain tasks.
+provide dropdown list selections to our unreal editor users, such as level designers. 
+We can test in code which specific choice is used, and as each entry in an enum is just a number, 
+we can create them in an order which makes sense, and then use `<, >, >=, <=` operators for certain tasks.
+
 BitFlags enums are a little bit like having a collection of booleans. It means that we can have one simple, compact way
 of holding information for things which may or may not use different combinations of associated features, without
-needing to have individual booleans defined for each thing. Variables created from these bitflags enumerations can be
-set to any arbitrary value, and have specific bits or patterns of bits set or cleared. We can also test if a variable
-contains either a specific bit, or specific pattern of bits. Not only is the memory use smaller than using individual
-booleans, but consequently communicating state across the network will also be faster.
+needing to have individual booleans defined for each thing.<br>
+Variables created from these bitflags enumerations can be set to any arbitrary value, and have specific bits or patterns of bits set or cleared.<br>
+We can also test if a variable contains either a specific bit, or specific pattern of bits.
+Not only is the memory use smaller than using individual booleans, but consequently communicating state across the network will also be faster.
+
 Hopefully you can see from this basic introduction, how useful enums can be; both for organising your logic, and
 producing cleaner code.
-As always, good luck with your own game dev projects, and I’ll see you around in another video, or maybe on the discord.
+
+As always, good luck with your own game dev projects.
 Take care!
-UENUM(BlueprintType, meta = (Bitflags, UseEnumValuesAsMaskValuesInEditor = "true"))
-EArmourCoverage
-{
-None,
-Legs,
-Chest,
-Arms,
-Hands,
-Head,
-FullSuit = Legs + Chest + Arms + Hands + Head,
-HalfSuit = Chest + Head
-}
-ENUM_CLASS_FLAGS(EEnemyPackComposition);
