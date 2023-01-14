@@ -2,6 +2,11 @@
 title: "Enums And Bitflags"
 thumbnail: "/assets/images/thumbnails/Thumbnail-Enums.png"
 synopsis: "How to use enums and bitflags in Unreal game development."
+
+toc: true
+toc_label: "Content"
+toc_icon: "heart"  # corresponding Font Awesome icon name without the "fa" prefix
+toc_sticky: true   # enables sticky toc
 ---
 This is the supporting document for my YouTube video:
 {% include video id="TuHFeS_eBe8" provider="youtube" %}
