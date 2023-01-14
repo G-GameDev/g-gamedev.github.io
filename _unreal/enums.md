@@ -499,7 +499,8 @@ different ways.
 You can just stick with decimal, especially if you are only dealing with `uint8` sizes.
 
 
-## Values in Hexadecimal{: .cf}
+## Values in Hexadecimal
+{: .cf}
 ![](../assets/unreal/enums/Enum_HEX.png){: .align-right}
 
 For BitFlags enumerations, many people have traditionally used hexadecimal notation to specify the values.<br>
@@ -509,7 +510,8 @@ Historically the reason for this is given as;
 'it's a bit clearer and less error prone than using decimal.'
 
 
-## Values in Binary{: .cf}
+## Values in Binary
+{: .cf}
 ![](../assets/unreal/enums/Enum_BINARY.png){: .align-right}
 
 However, as of C++ 14, we can now write binary literals, which would arguably be the clearest way of declaring these
@@ -520,7 +522,8 @@ for a `uint8`, binary would probably be the clearest to read in your code. But i
 you really wanna type out 64 characters for each number? In hexadecimal it's only 16.
 
 
-## Values as 'left shifted' 1{: .cf}
+## Values as 'left shifted' 1
+{: .cf}
 ![](../assets/unreal/enums/Enum_LSL.png){: .align-right}
 
 And of course, yet another school of thought prefers to use compile time constants, where your enum values are specified
