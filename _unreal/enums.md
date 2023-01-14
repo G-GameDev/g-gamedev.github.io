@@ -7,13 +7,17 @@ toc: true
 toc_label: "Content"
 toc_icon: "heart"  # corresponding Font Awesome icon name without the "fa" prefix
 toc_sticky: true   # enables sticky toc
+
+layout: single
+classes:
+  - wide
 ---
-This is the supporting document for my YouTube video:
+# YouTube video:
 {% include video id="TuHFeS_eBe8" provider="youtube" %}
 
-How to use enums and bitflags in Unreal game development.
+How to use enums and bitflags in Unreal game development.<br>
 We’ll take a look at exactly what these things are, how they operate,
-what they are useful for, and when to use them (or use something else.)
+what they are useful for, and when to use them (or use something else.)<br>
 As usual there will be examples with both blueprints and C++ where appropriate.
 {: .notice--info}
 
