@@ -465,17 +465,20 @@ to exchange.
 
 What we want to do is find the row in the datatable that has the `FromCCY` and `ToCCY` currencies we are interested in.
 
-There isnt really any simple way to do that though, as `DataTables` work using their ‘rowname’ to pull individual rows
+There isn't really any simple way to do that though, as `DataTables` work using their `rowname` to pull individual rows
 out.<br>
-Yeah, sure we could cludge something together where we used a combination of the from and to enum names as the rowname,
+Yeah, sure we could kludge something together, where we used a combination of the from and to enum names as the rowname,
 but, well, that’s just a lot of rather pointless work for no real returns.
 
-We don’t have many entries in there, so in this case its simpler to use a blueprint node that gets all the datatable’s
+We don’t have many entries in there, so in this case it's simpler to use a blueprint node that gets all the datatable’s
 row names, and just do a for each loop over it, the result is basically for...each(ing) over the datatable rows.
 
 Now that we have actual rows, we can test the `FromCCY` and `ToCCY` currency values to see if they match what we are interested
 in. If they do, we use the `Rate` recorded for that row, and multiply it by the `Amount` parameter to get the result, which
 we return.
+
+This image shows the full node-graph for the ConvertCurrency function:
+![convert-currency-nodes](../assets/unreal/enums/ConvertCurrencyNodes.png)
 
 If we don’t find a row with the specified from and to currencies we return a value of 0. But you could do whatever you
 like, such as returning -1 to indicate a conversion failure to the calling code. And if you were going to use something
