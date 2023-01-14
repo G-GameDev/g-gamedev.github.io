@@ -495,11 +495,13 @@ different ways.
 
 ## Values in Decimal
 ![](../assets/unreal/enums/Enum_DECIMAL.png){: .align-right}
+
 You can just stick with decimal, especially if you are only dealing with `uint8` sizes.
 {: .cf}
 
 ## Values in Hexadecimal
 ![](../assets/unreal/enums/Enum_HEX.png){: .align-right}
+
 For BitFlags enumerations, many people have traditionally used hexadecimal notation to specify the values.<br>
 And a majority of the BitFlag enumerations which Epic uses in the Engine code are declared in this way.
 
@@ -509,6 +511,7 @@ Historically the reason for this is given as;
 
 ## Values in Binary
 ![](../assets/unreal/enums/Enum_BINARY.png){: .align-right}
+
 However, as of C++ 14, we can now write binary literals, which would arguably be the clearest way of declaring these
 enumerations, as long as we provide any leading zeros.
 
@@ -519,6 +522,7 @@ you really wanna type out 64 characters for each number? In hexadecimal it's onl
 
 ## Values as 'left shifted' 1
 ![](../assets/unreal/enums/Enum_LSL.png){: .align-right}
+
 And of course, yet another school of thought prefers to use compile time constants, where your enum values are specified
 as 1, bitshifted left by the relevant number of bits.
 
