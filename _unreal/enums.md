@@ -496,6 +496,7 @@ different ways.
 ## Values in Decimal
 ![](../assets/unreal/enums/Enum_DECIMAL.png){: .align-right}
 You can just stick with decimal, especially if you are only dealing with `uint8` sizes.
+{: .cf}
 
 ## Values in Hexadecimal
 ![](../assets/unreal/enums/Enum_HEX.png){: .align-right}
@@ -503,7 +504,8 @@ For BitFlags enumerations, many people have traditionally used hexadecimal notat
 And a majority of the BitFlag enumerations which Epic uses in the Engine code are declared in this way.
 
 Historically the reason for this is given as;
-> it's a bit clearer and less error prone than using decimal.
+'it's a bit clearer and less error prone than using decimal.'
+{: .cf}
 
 ## Values in Binary
 ![](../assets/unreal/enums/Enum_BINARY.png){: .align-right}
@@ -513,6 +515,7 @@ enumerations, as long as we provide any leading zeros.
 I don’t wanna get into a whole argument about which is better,
 for a `uint8`, binary would probably be the clearest to read in your code. But if you have bitflags based on `uint64`… do
 you really wanna type out 64 characters for each number? In hexadecimal it's only 16.
+{: .cf}
 
 ## Values as 'left shifted' 1
 ![](../assets/unreal/enums/Enum_LSL.png){: .align-right}
@@ -526,6 +529,7 @@ with these things for a while you tend to memorise all the values of 2 to n, rig
 as you keep seeing the various values all over the place in 3d game development, most obviously in texture dimensions.
 
 For this example, I’ll specify them in binary, and put the decimal value in a comment.
+{: .cf}
 
 # Bitflag Enum Examples
 ![healthy](../assets/unreal/enums/Injury_Healthy.png){: .align-right}
