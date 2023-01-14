@@ -409,53 +409,88 @@ EAmmunitionType
 We can then have a weapon class, with an `AmmunitionType` property.
 
 
-## Currency Exchange Rate Example
+# Currency Exchange Rate Example
+
+This Blueprints only example will use an Unreal Editor created `Enumeration` to define several different currencies.<br>
+I then go on to create the supporting objects to provide easy conversion between the different currencies.
+
+## Step 1: CurrencyType Enumeration
+In the Unreal Editor, I start by creating a new `Enumeration`, which I name `CurrencyType`.
+
+![enum](../assets/unreal/enums/CurrencyType_Enumeration.png)
+
+![currency-type](../assets/unreal/enums/CurrencyType_Creation.png)
+And entering four enumeration entries, which represent the four different currencies we might be using in a game.
+
+## Step 2: ExchangeRate Structure
+I then create a new `structure`, which I name `ExchangeRate`.<br>
+The purpose of this structure is to define a single exchange between two `CurrencyType`s
 
 ![structure_icon](../assets/unreal/enums/ExchangeRate_Structure.png)
+
 ![exchange_rate_1](../assets/unreal/enums/ExchangeRate_Creation_1.png)
+The structure gets a `FromCurrency` which is of type `CurrencyType`,<br>
+a `ToCurrency` which is also of `CurrencyType`,<br>
+and a `Rate` which is a float.
+
+I set the default values for this structure's three properties:
 ![exchange_rate_2](../assets/unreal/enums/ExchangeRate_Creation.png)
 
+## Step 3: CurrencyExchange DataTable
+Next an Unreal `DataTable` is created to store as many `ExchangeRate` entries as we need.
 
+![data-table](../assets/unreal/enums/CurrencyExchange_DataTable.png)
 
-We can then show how we might store an exchange rate table, converting between these currencies.
-Create the enum for the currencies, I’m calling it ‘CurrencyType’.
-Then I create a blueprint struct that defines an exchange rate between 2 of those currencies.
-So it has the currency we are converting from, the currency we are converting to, and the exchange rate.
-Then I’m gonna make a datatable to store all the exchange rates that we need.
-I set the FromCurrency, and the ToCurrency, and fill in the exchange rate multiplier for each one.
-Because this is a datatable you could do this in a spreadsheet and import it if you wanted to. But we dont have many
-entries in this example, so I’m just entering it all by hand in the unreal editor.
-I leave the RowName to the default values that unreal provides for it.
-I’ll be honest with you; I don’t really like the way that datatables are implemented in unreal, at least as far as
-blueprints are concerned, and if I intended to do a lot of work with them, I would certainly code some blueprint
-functions in C++ to make the experience a little less painful. But I dont need to do that, because as you will have
-gathered if you’ve seen any of my other videos, for games that use any meaningful amount of data, I would just use
-databases instead. And thats exactly what I would want for something like this example. Rather than datatables which are
-not really meant to be updated at runtime, databases are, and so you could fairly easily allow the player’s actions to
-influence exchange rates, or for a trading game, track the current price of various stocks in different locations. But
-this IS just an example and I digress (once again).
+![](../assets/unreal/enums/CurrencyExchange_Data.png)
+I populate the `Data Table` with an entry for each currency pair, in each direction.
+
+To those of you who know a little about real world FX, 
+you might think that storing conversions in BOTH directions is a waste of time.<br>
+i.e. A >> B AND B >> A<br>
+However, it simplifies things for this example, and arguably gives you more flexibility.<br>
+For instance, you may decide that you CAN convert A>>B, but not B>>A for some in-game world reason.<br>
+Doing it this way would mean we could just omit an entry for B>>A, 
+and code our conversion routine to handle not finding a valid exchange item.
+
+I leave the [RowName] to the default values that unreal provides for it.
+
+## Step 4: Blueprint function Library
 Next, I’ll make a blueprint function library, and add a new function to it called ‘ConvertCurrency’.
+![](../assets/unreal/enums/BlueprintFunctionLibrary.png)
+![](../assets/unreal/enums/ConvertCurrencyFunction.png)
+
 I’ll add input parameters for the [from] and [to] currencies, and another for the [amount] of from currency that we want
 to exchange.
-What we want to do is find the row in the datatable that has the from and to currencies we are interested in.
-There isnt really any simple way to do that though, as datatables work using their ‘rowname’ to pull individual rows
-out.
+![](../assets/unreal/enums/ConvertCurrencyProperties.png)
+
+What we want to do is find the row in the datatable that has the `FromCCY` and `ToCCY` currencies we are interested in.
+
+There isnt really any simple way to do that though, as `DataTables` work using their ‘rowname’ to pull individual rows
+out.<br>
 Yeah, sure we could cludge something together where we used a combination of the from and to enum names as the rowname,
 but, well, that’s just a lot of rather pointless work for no real returns.
+
 We don’t have many entries in there, so in this case its simpler to use a blueprint node that gets all the datatable’s
 row names, and just do a for each loop over it, the result is basically for...each(ing) over the datatable rows.
-Now that we have actual rows, we can test the from and to currency values to see if they match what we are interested
-in. If they do, we use the rate recorded for that row, and multiply it by the amount parameter to get the result, which
+
+Now that we have actual rows, we can test the `FromCCY` and `ToCCY` currency values to see if they match what we are interested
+in. If they do, we use the `Rate` recorded for that row, and multiply it by the `Amount` parameter to get the result, which
 we return.
 
 If we don’t find a row with the specified from and to currencies we return a value of 0. But you could do whatever you
 like, such as returning -1 to indicate a conversion failure to the calling code. And if you were going to use something
 like this a lot, it might make sense to check if the from and to currencies are the same before even looking at the
-datatable, and simply returning the same amount that was passed in if they are. You know, just in case your UI doesn’t
-enforce that they are different. Belt AND Braces, as they say.
-Bitflag Enum Examples
-Right, so lets get an example of how we can use those BitFlags enums.
+datatable, and simply returning the same amount that was passed in if they are.<br>
+You know, just in case your UI doesn’t enforce that they are different.<br>
+>Belt and Braces
+ 
+As they say.
+
+# Bitflag Enum Examples
+
+![healthy](../assets/unreal/enums/Injury_Healthy.png){: .align-left}
 We are going to make a bitflags enum for tracking injuries to specific body locations on the player character.
+
 In this example I start with an entry for ‘Healthy’ which is set to zero, meaning no injuries, and would most likely be
 the default value you would initialise variables to.
 When you are declaring enums and manually assigning the values in C++, you are free to provide the values in a number of
