@@ -5,7 +5,7 @@ synopsis: "How to use enums and bitflags in Unreal game development."
 
 #toc: true
 #toc_label: "Content"
-#toc_icon: "heart"  # corresponding Font Awesome icon name without the "fa" prefix
+#toc_icon: "table-list"  # corresponding Font Awesome icon name without the "fa" prefix
 #toc_sticky: true   # enables sticky toc
 
 layout: single
