@@ -12,14 +12,17 @@ layout: single
 classes:
   - wide_post
 ---
-# YouTube video:
-{% include video id="TuHFeS_eBe8" provider="youtube" %}
 
-How to use enums and bitflags in Unreal game development.<br>
-We’ll take a look at exactly what these things are, how they operate,
+# Introduction
+The contents of this page are derived (mostly) from the YouTube video
+'How to use enums and bitflags in Unreal game development'.<br>
+It goes into what enums are, how they operate,
 what they are useful for, and when to use them (or use something else.)<br>
 As usual there will be examples with both blueprints and C++ where appropriate.
 {: .notice--info}
+
+# YouTube video:
+{% include video id="TuHFeS_eBe8" provider="youtube" %}
 
 # What are Enums?
 Enums in Unreal (and for that matter in most development languages or platforms) are a way of grouping a bunch of
@@ -250,8 +253,8 @@ You might like to think of it in physics terms;<br>
 It’s a little bit like an atom. We know that atoms are made up smaller sub atomic particles - which in this metaphor
 represent the binary zeros and ones, but the atom itself is kinda the smallest thing which is useful on its own.
 
-Computer memory is generally organised and addressed in bytes (or multiples of bytes)
-Each byte is made of eight bits, those individual zeros or ones.
+Computer memory is generally organised and addressed in bytes (or multiples of bytes)<br>
+Each byte is made of eight bits, those individual zeros or ones.<br>
 And that `uint8` we keep talking about? Is just a byte.
 
 ## Counting 'normally', in decimal
