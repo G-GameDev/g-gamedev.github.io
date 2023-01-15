@@ -226,10 +226,11 @@ To explain that, we need to talk about binary.
 
 Oi you!<br>
 Yes you, the blueprint programmer about to skip because talk of binary is obviously C++ stuff, 
-and doesn’t relate to you. It absolutely does relate to you.<br>
+and doesn’t relate to you.<br>
+It absolutely does relate to you.<br>
 Firstly, because at some point you might start including some C++ in your repertoire, 
 and secondly because the principle of bitflags is the same in most languages, in fact, 
-what im about to describe is pretty much the same thing if you are coding for unity in C#, 
+what I'm about to describe is pretty much the same thing if you are coding for unity in C#, 
 or making your enum in the unreal editor.
 {: .notice--danger}
 
@@ -417,7 +418,7 @@ I then go on to create the supporting objects to provide easy conversion between
 ## Step 1: CurrencyType Enumeration
 In the Unreal Editor, I start by creating a new `Enumeration`, which I name `CurrencyType`.
 
-![enum](../assets/unreal/enums/CurrencyType_Enumeration.png)
+![enum_icon](../assets/unreal/enums/CurrencyType_Enumeration.png){: .align-center}
 
 ![currency-type](../assets/unreal/enums/CurrencyType_Creation.png)
 And entering four enumeration entries, which represent the four different currencies we might be using in a game.
@@ -439,7 +440,7 @@ I set the default values for this structure's three properties:
 ## Step 3: CurrencyExchange DataTable
 Next an Unreal `DataTable` is created to store as many `ExchangeRate` entries as we need.
 
-![data-table](../assets/unreal/enums/CurrencyExchange_DataTable.png)
+![data-table](../assets/unreal/enums/CurrencyExchange_DataTable.png){: .align-center}
 
 ![](../assets/unreal/enums/CurrencyExchange_Data.png)
 I populate the `Data Table` with an entry for each currency pair, in each direction.
@@ -456,8 +457,8 @@ I leave the [RowName] to the default values that unreal provides for it.
 
 ## Step 4: Blueprint function Library
 Next, I’ll make a blueprint function library, and add a new function to it called ‘ConvertCurrency’.
-![](../assets/unreal/enums/BlueprintFunctionLibrary.png)
-![](../assets/unreal/enums/ConvertCurrencyFunction.png)
+![](../assets/unreal/enums/BlueprintFunctionLibrary.png){: .align-center}
+![](../assets/unreal/enums/ConvertCurrencyFunction.png){: .align-center}
 
 I’ll add input parameters for the [from] and [to] currencies, and another for the [amount] of from currency that we want
 to exchange.
