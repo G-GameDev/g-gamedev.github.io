@@ -10,7 +10,7 @@ synopsis: "How to use enums and bitflags in Unreal game development."
 
 layout: single
 classes:
-  - wide
+  - wide_post
 ---
 # YouTube video:
 {% include video id="TuHFeS_eBe8" provider="youtube" %}
@@ -514,8 +514,8 @@ Historically the reason for this is given as;
 {: .cf}
 ![](../assets/unreal/enums/Enum_BINARY.png){: .align-right}
 
-However, as of C++ 14, we can now write binary literals, which would arguably be the clearest way of declaring these
-enumerations, as long as we provide any leading zeros.
+As of C++ 14, we can now write binary literals, which would arguably be the clearest way of declaring these
+enumerations, as long as we provide any leading zeros, and align them.
 
 I don’t wanna get into a whole argument about which is better,
 for a `uint8`, binary would probably be the clearest to read in your code. But if you have bitflags based on `uint64`… do

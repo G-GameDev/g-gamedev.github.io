@@ -103,8 +103,8 @@ defaults:
       layout: single
       class: wide
 #      read_time: false
-#      author_profile: false
-#      share: true
+      author_profile: false
+      share: true
 #      comments: true
 #      sidebar:
 #        nav: "unreal"
