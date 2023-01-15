@@ -10,7 +10,9 @@ toc_sticky: true   # enables sticky toc
 
 layout: single
 classes:
-- wide_post---
+- wide_post
+
+---
 
 # Introduction
 Hello lovely peoples, it’s me, back again with another little ‘god-ray’ of game development sunshine for you.
