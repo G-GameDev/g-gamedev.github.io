@@ -24,10 +24,10 @@ As usual there will be examples with both blueprints and C++ where appropriate.
 # What are Enums?
 Enums in Unreal (and for that matter in most development languages or platforms) are a way of grouping a bunch of
 possible choices together under one ‘thing’. 
-That ‘thing is usually considered to be a ‘type’, in a similar way that a class you define is a type, 
-and that int, and bool are types provided by the language or platform.
-For example, you can define an enum called BasicFruit, with entries for Apple, Banana, and Tomato.
-If you then declare a variable of type BasicFruit, you are saying that only one of those 3 things is a valid ‘value’ for
+That ‘thing is usually considered to be a `type`, in a similar way that a class you define is a type, 
+and that `int`, and `bool` are types provided by the language or platform.
+For example, you can define an enum called `BasicFruit`, with entries for Apple, Banana, and Tomato.
+If you then declare a variable of type `BasicFruit`, you are saying that only one of those 3 things is a valid ‘value’ for
 that variable.
 
 We might be making a game with different kinds of enemies, and create an enum declaring them like so:
@@ -426,7 +426,7 @@ And entering four enumeration entries, which represent the four different curren
 I then create a new `structure`, which I name `ExchangeRate`.<br>
 The purpose of this structure is to define a single exchange between two `CurrencyType`s
 
-![structure_icon](../assets/unreal/enums/ExchangeRate_Structure.png)
+![structure_icon](../assets/unreal/enums/ExchangeRate_Structure.png){: .align-center}
 
 ![exchange_rate_1](../assets/unreal/enums/ExchangeRate_Creation_1.png)
 The structure gets a `FromCurrency` which is of type `CurrencyType`,<br>
