@@ -5,7 +5,7 @@ synopsis: "How to use enums and bitflags in Unreal game development."
 
 toc: true
 toc_label: "Content"
-toc_icon: "table-list"  # corresponding Font Awesome icon name without the "fa" prefix
+toc_icon: "table"  # corresponding Font Awesome icon name without the "fa" prefix
 toc_sticky: true   # enables sticky toc
 
 layout: single
@@ -447,11 +447,13 @@ I populate the `Data Table` with an entry for each currency pair, in each direct
 
 To those of you who know a little about real world FX, 
 you might think that storing conversions in BOTH directions is a waste of time.<br>
-i.e. A >> B AND B >> A<br>
+As usually the rate for A >> B is the same as 1 / B >> A<br>
 However, it simplifies things for this example, and arguably gives you more flexibility.<br>
 For instance, you may decide that you CAN convert A>>B, but not B>>A for some in-game world reason.<br>
-Doing it this way would mean we could just omit an entry for B>>A, 
-and code our conversion routine to handle not finding a valid exchange item.
+Doing it this way would mean we could just omit an entry for B>>A,
+and code our conversion routine to handle not finding a valid exchange item.<br>
+Or you might say that the exchange 'house' charges more for conversions in a specific direction, for whatever reasons you like.
+{: .notice--info}
 
 I leave the [RowName] to the default values that unreal provides for it.
 
